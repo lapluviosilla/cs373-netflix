@@ -13,6 +13,30 @@ import unittest
 from Netflix import netflix_solve, rmse
 
 class TestNetflix (unittest.TestCase) :
+  # ---
+  # netflix_solve
+  # ---
+  def test_solve1 (self) :
+    r = io.StringIO("1:\n14756\n")
+    w = io.StringIO()
+    netflix_solve(r, w)
+    self.assertTrue(w.getvalue() == "1:\n3.7\n")
+
+  def test_solve2 (self) :
+    r = io.StringIO("1:\n712610\n1772839\n1059319\n2380848\n548064\n")
+    w = io.StringIO()
+    netflix_solve(r, w)
+    self.assertTrue(w.getvalue() == "1:\n3.7\n3.7\n3.7\n3.7\n3.7\n")
+
+  def test_solve3 (self) :
+    r = io.StringIO("10007:\n1204847\n2160216\n248206\n")
+    w = io.StringIO()
+    netflix_solve(r, w)
+    self.assertTrue(w.getvalue() == "10007:\n3.7\n3.7\n3.7\n")
+
+  # ---
+  # rmse
+  # ---
   def test_rmse1 (self) :
     a = (2,3,4)
     b = (2,3,4)
