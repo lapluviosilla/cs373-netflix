@@ -4,7 +4,7 @@
 import math
 import io
 
-BASE_CACHE_PATH = "/u/thunt/cs373-netflix-tests"
+BASE_CACHE_PATH = "/u/thunt/cs373-netflix-tests/"
 
 CACHE_PROBE = 0
 CACHE_GENERAL = 1
