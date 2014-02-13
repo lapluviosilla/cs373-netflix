@@ -1,0 +1,71 @@
+commit 7d1cf812974dbe84a7d1fb5b8c870fcdf3dcd94b
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:10:59 2014 -0600
+
+    Added acceptance tests. Closes #4
+
+commit 428ed74cee3720dff1e19128b147e41bfd5c6de1
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:09:29 2014 -0600
+
+    Added average caches. Completed Unit Tests. Fixes #14 and fixes #3
+
+commit c020199e00fe8e6c1c97d78229c7bc13d4f6e2c8
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 07:57:23 2014 -0600
+
+    Fixed incorrect RMSE calculation. Fixes #15
+
+commit b26bad9a8fa03f61eed03644a43ff9f996b8f19c
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 05:24:23 2014 -0600
+
+    Now calculating RMSE for basic predictor. Closes #10 and closes #11
+
+commit 2df13b1b3804cf151d660cba9712a36b87c9a16a
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 03:37:20 2014 -0600
+
+    Added cache lodaer for probe and general cache data. Closes #13
+
+commit ccc4a47461b43947fc9ff52944e889cf828d7f41
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 03:36:18 2014 -0600
+
+    update gitignore
+
+commit 7bd78db300cef5db4e32df3621ac2e58b5f09047
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 02:20:10 2014 -0600
+
+    Updated .gitignore
+
+commit 0c8ce68cf6fab2ffcd3bbca1eadea006aae7d81b
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 02:20:01 2014 -0600
+
+    Basic reader and writer with mean average prediction. No RMSE. References #11
+
+commit 6d1f16039ef97cc3bcd4b660e98f7daeb08b5345
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 01:47:00 2014 -0600
+
+    Basic RMSE Implementation. Closes #10
+
+commit ae21f39cd79578ca96772999f150701ead779aaf
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 01:43:07 2014 -0600
+
+    Added initial test cases for rmse. References #3 and #10
+
+commit d5df6e12b258616041eebee72e878ce4f6119770
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 01:41:47 2014 -0600
+
+    Initial netflix files. References #1
+
+commit 268b70802718fa1d34699792fd119854245b3861
+Author: Paul Strong <paul@thestrongfamily.org>
+Date:   Wed Feb 12 17:09:10 2014 -0800
+
+    Initial commit

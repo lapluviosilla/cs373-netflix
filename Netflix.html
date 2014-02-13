@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Netflix</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Netflix</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/pinkmexican/Documents/Projects/cs373/cs373-netflix/Netflix.py">/Users/pinkmexican/Documents/Projects/cs373/cs373-netflix/Netflix.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;Paul&nbsp;Strong</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="io.html">io</a><br>
+</td><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="Netflix.html#Prediction">Prediction</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Prediction">class <strong>Prediction</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Prediction-__init__"><strong>__init__</strong></a>(self, movie, custids, predictions)</dt></dl>
+
+<dl><dt><a name="Prediction-calculate_rmse"><strong>calculate_rmse</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Prediction-display"><strong>display</strong></a>(self, writer)</dt></dl>
+
+<dl><dt><a name="Prediction-real_ratings"><strong>real_ratings</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_cache_probe"><strong>get_cache_probe</strong></a>()</dt></dl>
+ <dl><dt><a name="-netflix_load_cache"><strong>netflix_load_cache</strong></a>(cache_type, path)</dt><dd><tt>reads&nbsp;and&nbsp;loads&nbsp;different&nbsp;caches&nbsp;into&nbsp;dictionary<br>
+cache_type&nbsp;can&nbsp;be&nbsp;either&nbsp;CACHE_PROBE&nbsp;or&nbsp;CACHE_GENERAL&nbsp;depending<br>
+on&nbsp;whether&nbsp;you&nbsp;want&nbsp;to&nbsp;load&nbsp;a&nbsp;probe&nbsp;cache&nbsp;or&nbsp;a&nbsp;general&nbsp;cache</tt></dd></dl>
+ <dl><dt><a name="-netflix_load_caches"><strong>netflix_load_caches</strong></a>()</dt></dl>
+ <dl><dt><a name="-netflix_predict"><strong>netflix_predict</strong></a>(movie, custids)</dt></dl>
+ <dl><dt><a name="-netflix_print"><strong>netflix_print</strong></a>(w, predictions)</dt></dl>
+ <dl><dt><a name="-netflix_solve"><strong>netflix_solve</strong></a>(r, w)</dt><dd><tt>read,&nbsp;eval,&nbsp;print&nbsp;loop<br>
+r&nbsp;is&nbsp;a&nbsp;reader<br>
+w&nbsp;is&nbsp;a&nbsp;writer</tt></dd></dl>
+ <dl><dt><a name="-rmse"><strong>rmse</strong></a>(a, b)</dt><dd><tt>Calculate&nbsp;Root&nbsp;Mean&nbsp;Squared&nbsp;Error&nbsp;between&nbsp;two&nbsp;iterables&nbsp;a&nbsp;and&nbsp;b</tt></dd></dl>
+ <dl><dt><a name="-set_cache_probe"><strong>set_cache_probe</strong></a>(val)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AVG_NUM_RATINGS</strong> = 5654.5<br>
+<strong>BASE_CACHE_PATH</strong> = '../netflix-tests/'<br>
+<strong>CACHE_GENERAL</strong> = 1<br>
+<strong>CACHE_PROBE</strong> = 0<br>
+<strong>PROBE_MEAN</strong> = 3.7<br>
+<strong>cache_cust_averages</strong> = None<br>
+<strong>cache_movie_averages</strong> = None<br>
+<strong>cache_movie_decade_avg</strong> = None<br>
+<strong>cache_num_ratings</strong> = None<br>
+<strong>cache_probe</strong> = None</td></tr></table>
+</body></html>
