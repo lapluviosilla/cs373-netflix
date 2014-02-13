@@ -29,6 +29,11 @@ class TestNetflix (unittest.TestCase) :
     b = (1,5,5,4,8)
     self.assertTrue(str(round(rmse(a,b), 6)) == "1.897367")
 
+  def test_rmse4 (self) :
+    a = 1000000 * [1]
+    b = 1000000 * [6]
+    self.assertTrue(str(rmse(a,b)) == "5.0")
+
 print("TestNetflix.py")
 unittest.main()
 print("Done.")
