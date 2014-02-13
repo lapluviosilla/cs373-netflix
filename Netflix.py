@@ -23,7 +23,10 @@ class Prediction:
       writer.write(str(round(rating, 1)) + "\n") 
 
   def calculate_rmse(self) :
-    return rmse(self.predictions, map(lambda x: get_cache_probe()[self.movie][x], self.custids))
+    return rmse(self.predictions, real_ratings())
+
+  def real_ratings(self) :
+    return map(lambda x: get_cache_probe()[self.movie][x], self.custids)
 
 
 def netflix_solve(r, w) :
@@ -99,8 +102,11 @@ def netflix_print(w, predictions) :
   for prediction in predictions :
     prediction.display(w)
 
-  v = sum((prediction.calculate_rmse() ** 2 for prediction in predictions), 0.0)
-  final_rmse = math.sqrt(v / len(predictions))
+  # Calculate RMSE
+  predicted_ratings = [item for sublist in [prediction.predictions for prediction in predictions] for item in sublist] # flatten
+  real_ratings = [item for sublist in [prediction.real_ratings() for prediction in predictions] for item in sublist] # flatten
+  final_rmse = rmse(predicted_ratings, real_ratings)
+
 
   w.write("RMSE: " + str(final_rmse) + "\n")
 

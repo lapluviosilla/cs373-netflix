@@ -20,19 +20,19 @@ class TestNetflix (unittest.TestCase) :
     r = io.StringIO("1:\n14756\n")
     w = io.StringIO()
     netflix_solve(r, w)
-    self.assertEqual(w.getvalue(), "1:\n3.7\nRMSE: 0.2999999999999998\n")
+    self.assertEqual(w.getvalue(), "1:\n3.7\nRMSE: 0.30654350027973454\n")
 
   def test_solve2 (self) :
     r = io.StringIO("1:\n712610\n1772839\n1059319\n2380848\n548064\n")
     w = io.StringIO()
     netflix_solve(r, w)
-    self.assertEqual(w.getvalue(), "1:\n3.7\n3.7\n3.7\n3.7\n3.7\nRMSE: 1.0630145812734648\n")
+    self.assertEqual(w.getvalue(), "1:\n4.1\n4.2\n3.1\n5.0\n3.5\nRMSE: 0.7601868708858408\n")
 
   def test_solve3 (self) :
     r = io.StringIO("10007:\n1204847\n2160216\n248206\n")
     w = io.StringIO()
     netflix_solve(r, w)
-    self.assertEqual(w.getvalue(), "10007:\n3.7\n3.7\n3.7\nRMSE: 1.7767010628315238\n")
+    self.assertEqual(w.getvalue(), "10007:\n2.0\n2.7\n2.2\nRMSE: 1.6254316644013882\n")
 
   # ---
   # netflix_predict
