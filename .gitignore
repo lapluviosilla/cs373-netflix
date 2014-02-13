@@ -5,6 +5,9 @@ data/
 # C extensions
 *.so
 
+# Tmp files
+.DS_Store
+
 # Packages
 *.egg
 *.egg-info
