@@ -1,3 +1,27 @@
+commit 3c15d4ea91b452a26d89235f44c764c59ff94063
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:20:22 2014 -0600
+
+    Path typo
+
+commit e8ca05bedead68458bc8b3b10c973d9ec47daa03
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:18:46 2014 -0600
+
+    Hardcoded tyler's dir
+
+commit 2685ad2ffc916bb8d3206f00e88dd6acb59dda19
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:14:54 2014 -0600
+
+    missing test output
+
+commit f2a14de26d4b82fb6efc55983d637d5f960585c9
+Author: Paul Strong <lapluviosilla@gmail.com>
+Date:   Thu Feb 13 08:12:02 2014 -0600
+
+    Added documentation. Closes #6
+
 commit 7d1cf812974dbe84a7d1fb5b8c870fcdf3dcd94b
 Author: Paul Strong <lapluviosilla@gmail.com>
 Date:   Thu Feb 13 08:10:59 2014 -0600

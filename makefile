@@ -44,4 +44,5 @@ RunNetflix.out: RunNetflix.in RunNetflix.py Netflix.py
 	RunNetflix.py < RunNetflix.in > RunNetflix.out
 
 TestNetflix.out: TestNetflix.py Netflix.py
-	TestNetflix.py &> TestNetflix.out
+	TestNetflix.py 1> TestNetflix.out 2> TestNetflix.out
+
