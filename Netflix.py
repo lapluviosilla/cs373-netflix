@@ -9,7 +9,14 @@ BASE_CACHE_PATH = "../netflix-tests/"
 CACHE_PROBE = 0
 CACHE_GENERAL = 1
 
-cache_probe = {}
+cache_probe = None
+cache_movie_averages = None
+cache_cust_averages = None
+cache_num_ratings = None
+cache_movie_decade_avg = None
+
+PROBE_MEAN = 3.7
+AVG_NUM_RATINGS = 5654.5
 
 class Prediction:
   def __init__(self, movie, custids, predictions):
@@ -23,7 +30,7 @@ class Prediction:
       writer.write(str(round(rating, 1)) + "\n") 
 
   def calculate_rmse(self) :
-    return rmse(self.predictions, real_ratings())
+    return rmse(self.predictions, self.real_ratings())
 
   def real_ratings(self) :
     return map(lambda x: get_cache_probe()[self.movie][x], self.custids)
@@ -35,7 +42,7 @@ def netflix_solve(r, w) :
   r is a reader
   w is a writer
   """
-  get_cache_probe() # Load probe cache if it has not been loaded yet
+  netflix_load_caches()
 
   assert(len(cache_probe) > 0)
 
@@ -64,11 +71,29 @@ def netflix_solve(r, w) :
 def netflix_predict(movie, custids) :
   assert(movie > 0)
   assert(len(custids) > 0)
-  prediction = Prediction(movie, custids, len(custids) * [3.7])
+  netflix_load_caches()
+  predicted_ratings = []
+  for custid in custids:
+    rating = cache_movie_decade_avg[movie] + (cache_movie_averages[movie] - cache_movie_decade_avg[movie]) + (cache_cust_averages[custid] - PROBE_MEAN)
+    # rating = rating / 4
+    rating = max(min(rating, 5.0), 1.0) # Ratings can only be between 1.0 and 5.0
+    predicted_ratings.append(rating)
+  prediction = Prediction(movie, custids, predicted_ratings)
   assert(prediction is not None)
   return prediction
 
   # with open("irvin-user_avg_json", "r")
+  # 
+def netflix_load_caches():
+  get_cache_probe()
+  global cache_movie_averages
+  global cache_cust_averages
+  global cache_num_ratings
+  global cache_movie_decade_avg
+  cache_movie_averages = cache_movie_averages or netflix_load_cache(CACHE_GENERAL, "ericweb2-movieAveragesOneLine.txt")
+  cache_cust_averages = cache_cust_averages or netflix_load_cache(CACHE_GENERAL, "ericweb2-custAveragesOneLine.txt")
+  cache_num_ratings = cache_num_ratings or netflix_load_cache(CACHE_GENERAL, "ericweb2-numRatingsOneLine.txt")
+  cache_movie_decade_avg = cache_movie_decade_avg or netflix_load_cache(CACHE_GENERAL, "ericweb2-movieDecadeAvgRatingOneLine.txt")
 
 def netflix_load_cache(cache_type, path):
   """

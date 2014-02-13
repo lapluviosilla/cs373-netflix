@@ -10,7 +10,7 @@ To test the program:
 import io
 import unittest
 
-from Netflix import netflix_solve, netflix_predict, rmse, netflix_load_cache, set_cache_probe, get_cache_probe, Prediction, CACHE_PROBE, CACHE_GENERAL
+from Netflix import netflix_solve, netflix_predict, rmse, netflix_load_cache, netflix_load_caches, set_cache_probe, get_cache_probe, Prediction, CACHE_PROBE, CACHE_GENERAL
 
 class TestNetflix (unittest.TestCase) :
   # ---
@@ -34,23 +34,29 @@ class TestNetflix (unittest.TestCase) :
     netflix_solve(r, w)
     self.assertEqual(w.getvalue(), "10007:\n2.0\n2.7\n2.2\nRMSE: 1.6254316644013882\n")
 
+  def test_solve4 (self) :
+    r = io.StringIO("3676:\n1982226\n1495499\n1669842\n2639376\n1982597\n1426939\n")
+    w = io.StringIO()
+    netflix_solve(r, w)
+    self.assertEqual(w.getvalue(), "3676:\n3.7\n3.6\n4.5\n2.9\n4.2\n4.2\nRMSE: 0.6597351087461958\n")
+
   # ---
   # netflix_predict
   # ---
   def test_predict(self) :
-    prediction = netflix_predict(1, (4,8,10,12))
-    self.assertEqual(prediction.movie, 1)
-    self.assertEqual(prediction.predictions, 4 * [3.7])
+    prediction = netflix_predict(3674, (1100257, 347434, 2472269))
+    self.assertEqual(prediction.movie, 3674)
+    self.assertEqual(prediction.predictions, [4.21234183018522, 3.377376155128011, 3.660141657622665])
 
   def test_predict2(self) :
-    prediction = netflix_predict(2, (1,2,3,4))
+    prediction = netflix_predict(3675, (1982589, 1376081, 2309102))
     s = io.StringIO()
-    self.assertEqual(prediction.movie, 2)
+    self.assertEqual(prediction.movie, 3675)
     prediction.display(s)
-    self.assertEqual(s.getvalue(), "2:\n3.7\n3.7\n3.7\n3.7\n")
+    self.assertEqual(s.getvalue(), "3675:\n2.3\n3.1\n2.9\n")
 
   def test_predict3(self) :
-    prediction = netflix_predict(1, (1,2,3))
+    prediction = netflix_predict(3674, (1100257, 347434, 2472269))
     self.assertTrue(type(prediction), Prediction)
 
   def test_prediction_display(self) :
@@ -64,6 +70,10 @@ class TestNetflix (unittest.TestCase) :
     s = io.StringIO()
     prediction.display(s)
     self.assertEqual(s.getvalue(), "2:\n2\n3\n")
+
+  def test_prediction_real_ratings(self) :
+    prediction = Prediction(3675, (1982589, 1376081, 2309102), [4,5,2])
+    self.assertEqual(list(prediction.real_ratings()), [4, 3, 1])
 
   def test_prediction_rmse(self) :
     set_cache_probe({1: {1: 3, 4:2, 5:5}})
@@ -105,6 +115,10 @@ class TestNetflix (unittest.TestCase) :
     cache = get_cache_probe()
     self.assertEqual(len(cache[10]), 2)
     self.assertEqual(cache[10][1531863], 3)
+
+  def test_load_caches(self) :
+    netflix_load_caches()
+    self.assertTrue(get_cache_probe is not None)
 
   # ---
   # rmse
