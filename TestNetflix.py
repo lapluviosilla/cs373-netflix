@@ -10,7 +10,7 @@ To test the program:
 import io
 import unittest
 
-from Netflix import netflix_solve, rmse
+from Netflix import netflix_solve, rmse, netflix_load_cache, CACHE_PROBE, CACHE_GENERAL
 
 class TestNetflix (unittest.TestCase) :
   # ---
@@ -33,6 +33,27 @@ class TestNetflix (unittest.TestCase) :
     w = io.StringIO()
     netflix_solve(r, w)
     self.assertTrue(w.getvalue() == "10007:\n3.7\n3.7\n3.7\n")
+
+  # ---
+  # netflix_load_cache
+  # ---
+
+  def test_load_cache(self) :
+    cache = netflix_load_cache(CACHE_PROBE, "word-probeMapCache.txt")
+    self.assertEqual(len(cache[10]), 2)
+    self.assertEqual(cache[10][1531863], 3)
+
+  def test_load_cache2(self) :
+    cache = netflix_load_cache(CACHE_GENERAL, "irvin-movie_avg_rating.txt")
+    self.assertEqual(len(cache), 17770)
+    self.assertEqual(cache[872], 4.199615032659114)
+    self.assertEqual(cache[14683], 3.7777777777777777)
+
+  def test_load_cache3(self) :
+    cache = netflix_load_cache(CACHE_GENERAL, "ericweb2-movieAveragesOneLine.txt")
+    self.assertEqual(len(cache), 17770)
+    self.assertEqual(cache[4863], 3.0)
+    self.assertEqual(cache[5267], 3.395734597156398)
 
   # ---
   # rmse
